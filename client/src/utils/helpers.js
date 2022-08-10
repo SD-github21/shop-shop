@@ -40,6 +40,7 @@ export function idbPromise(storeName, method, object) {
       // If there's any errors, let us know
       db.onerror = function(e) {
         console.log('error', e);
+      };
 
       // Check which value we pass into the function as a method and perform that method on the object store
       switch (method) {
@@ -64,7 +65,7 @@ export function idbPromise(storeName, method, object) {
       // When the transaction is complete, close the connection
       tx.oncomplete = function() {
         db.close();
-      }
+      
       };
     }
   });
